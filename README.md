@@ -1,0 +1,1 @@
+# archipelago-seed-randomizer
