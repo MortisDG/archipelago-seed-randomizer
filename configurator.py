@@ -103,7 +103,7 @@ def generate_settings(name, difficulty):
         
         game_settings["enable_move_randomizer"] = {"true": 50, "false": 0}
         game_settings["enable_orbsanity"] = {"per_level": 0, "off": 0, "global": 50}
-        game_settings["global_orbsanity_bundle_size:"] = {random_orbsanity_size: 50}
+        game_settings["global_orbsanity_bundle_size"] = {random_orbsanity_size: 50}
         game_settings["filler_power_cells_replaced_with_traps"] = {random_filler_size: 50}
         game_settings["filler_orb_bundles_replaced_with_traps"] = {random_orb_filler_size: 50}
         game_settings["trap_effect_duration"] = {random_trap_duration: 50}
@@ -128,13 +128,13 @@ def generate_settings(name, difficulty):
         random_filler_size = random.randint(15, 35)
         random_orb_filler_size = random.randint(5, 10)
         random_trap_duration = random.randint(25, 60)
-        valid_bundle_sizes = [1, 2, 4, 5, 8, 10, 16, 20, 25, 40, 50]
+        valid_bundle_sizes = [16, 20, 25, 40, 50, 80, 100]
         random_orbsanity_size = random.choice(valid_bundle_sizes)
         random_canyon_cell_count = random.randint(20, 25)        
         
         game_settings["enable_move_randomizer"] = {"true": 50, "false": 0}
         game_settings["enable_orbsanity"] = {"per_level": 0, "off": 0, "global": 50}
-        game_settings["global_orbsanity_bundle_size:"] = {random_orbsanity_size: 50}
+        game_settings["global_orbsanity_bundle_size"] = {random_orbsanity_size: 50}
         game_settings["filler_power_cells_replaced_with_traps"] = {random_filler_size: 50}
         game_settings["filler_orb_bundles_replaced_with_traps"] = {random_orb_filler_size: 50}
         game_settings["trap_effect_duration"] = {random_trap_duration: 50}
@@ -145,17 +145,22 @@ def generate_settings(name, difficulty):
         random_filler_size = random.randint(15, 50)
         random_orb_filler_size = random.randint(5, 20)
         random_trap_duration = random.randint(25, 60)
-        valid_bundle_sizes = [1, 2, 4, 5, 8, 10, 16]
+        valid_bundle_sizes = [16, 20, 25, 40, 50, 80, 100, 125, 200, 250]
         random_orbsanity_size = random.choice(valid_bundle_sizes)
         random_canyon_cell_count = random.randint(20, 25)
         random_mountainpass_cell_count = random.randint(45, 50)
         random_lava_tube_cell_count = random.randint(72, 80)
-        random_citizen_orb_trade_amount = random.randint(90, 110)
-        random_oracle_orb_trade_amount = random.randint(120, 130)
+        random_citizen_orb_trade_amount = random.randint(90, 130)
+        random_oracle_orb_trade_amount = random.randint(120, 150)
+        random_punch_for_klaww = random.choices(
+                                                ["true", "false"],           
+                                                weights=[0, 50],            
+                                                k=1                          
+                                                )[0]  
         
         game_settings["enable_move_randomizer"] = {"true": 50, "false": 0}
         game_settings["enable_orbsanity"] = {"per_level": 0, "off": 0, "global": 50}
-        game_settings["global_orbsanity_bundle_size:"] = {random_orbsanity_size: 50}
+        game_settings["global_orbsanity_bundle_size"] = {random_orbsanity_size: 50}
         game_settings["filler_power_cells_replaced_with_traps"] = {random_filler_size: 50}
         game_settings["filler_orb_bundles_replaced_with_traps"] = {random_orb_filler_size: 50}
         game_settings["trap_effect_duration"] = {random_trap_duration: 50}
@@ -164,6 +169,7 @@ def generate_settings(name, difficulty):
         game_settings["lava_tube_cell_count"] = {random_lava_tube_cell_count: 50}
         game_settings["citizen_orb_trade_amount"] = {random_citizen_orb_trade_amount: 50}
         game_settings["oracle_orb_trade_amount"] = {random_oracle_orb_trade_amount: 50}
+        game_settings["require_punch_for_klaww"] = {random_punch_for_klaww: 50}
         game_settings["trap_weights"] = generate_random_trap_weights()
         game_settings["accessibility"] = {"full": 0, "minimal": 50}
         game_settings["progression_balancing"] = {
